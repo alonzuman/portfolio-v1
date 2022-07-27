@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+import avatarImg from '../assets/avatar.webp'
+import Section from "../components/Section.astro";
+const posts = await Astro.glob('./post/*.md');
+const snippets = await Astro.glob('./snippet/*.md');
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <header class='mb-12'>
+      <img class='mb-4 rounded-full h-16 w-16' src={avatarImg} />
+      <h4>Hey, I'm Alon 👋, I'm a design-minded software engineer passionate about building beautiful experiences for
+        people to enjoy.
+      </h4>
+    </header>
+    <br />
+    <Section title='Reading' links={ [ { href:'https://leerob.io', target: '_blank' ,label: 'Lee Robinson' }, {
+      href: 'https://brianlovin.com' , target: "_blank" , label: "Brian Lovin" }, { href: 'https://tkdodo.eu/blog/' ,
+      target :'_blank', label: "Dominik" } ]} />
+    <Section title='Writing' links={posts?.map(post=> ({
+      href: post.url,
+      label: post.frontmatter?.title
+      }))} />
+      <Section title='Writing' links={snippets?.map(post=> ({
+        href: post.url,
+        label: post.frontmatter?.title
+        }))} />
+        <Section title='Work' links={[{ href: 'https://junojourney.com' , label: "Juno Journey" },{
+          href: 'https://barbiz.shop' , label: "Barbiz" }]} />
+  </main>
+</Layout>

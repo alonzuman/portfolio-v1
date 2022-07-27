@@ -1,0 +1,21 @@
+---
+export interface Props {
+  links?: { label: string; href: string; target?: HTMLAttributeAnchorTarget }[];
+  title: string;
+}
+
+const { title, links } = Astro.props as Props;
+---
+
+<section class='flex mb-12'>
+  <h4 class='w-24 text-neutral-400'>{title}</h4>
+  <ul>
+    {links?.map(({label,...link}) => (
+    <a {...link}>
+      <li class='mb-2'>
+        {label}
+      </li>
+    </a>
+    ))}
+  </ul>
+</section>
