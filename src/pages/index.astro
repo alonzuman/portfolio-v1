@@ -18,7 +18,7 @@ const snippets = await Astro.glob('./snippet/*.md');
     <Section title='Reading' links={ [ { href:'https://leerob.io', target: '_blank' ,label: 'Lee Robinson' }, {
       href: 'https://brianlovin.com' , target: "_blank" , label: "Brian Lovin" }, { href: 'https://tkdodo.eu/blog/' ,
       target :'_blank', label: "Dominik" } ]} />
-    <Section title='Writing' links={posts?.map(post=> ({
+    <Section title='Writing' links={posts?.filter(p=> !p.frontmatter?.draft)?.map(post=> ({
       href: post.url,
       label: post.frontmatter?.title
       }))} />
