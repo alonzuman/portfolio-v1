@@ -6,7 +6,7 @@ const posts = await Astro.glob('./post/*.md');
 const snippets = await Astro.glob('./snippet/*.md');
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Alon Zuman">
   <main>
     <header class='mb-12'>
       <img class='mb-4 rounded-full h-16 w-16' src={avatarImg} />
@@ -22,11 +22,12 @@ const snippets = await Astro.glob('./snippet/*.md');
       href: post.url,
       label: post.frontmatter?.title
       }))} />
-      <Section title='Writing' links={snippets?.map(post=> ({
+      <Section title='Snippets' links={snippets?.map(post=> ({
         href: post.url,
         label: post.frontmatter?.title
         }))} />
-        <Section title='Work' links={[{ href: 'https://junojourney.com' , label: "Juno Journey" },{
-          href: 'https://barbiz.shop' , label: "Barbiz" },{href: '#' , label: "Leesa" }]} />
+        <Section title='Work' links={[{ target:"_blank", href: 'https://junojourney.com' , label: "Juno Journey" },{
+          target:"_blank",href: 'https://barbiz.shop' , label: "Barbiz" },{href: '#' , label: "Leesa"
+          },{target:'_blank', href: 'https://zumanjewelry.com' , label: "Zuman Jewelry" }]} />
   </main>
 </Layout>
