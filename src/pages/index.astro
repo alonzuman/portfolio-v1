@@ -5,6 +5,7 @@ import mapImage from '../assets/map.png'
 import Section from "../components/Section.astro";
 import TwIcon from '../components/icons/Twitter.astro'
 import LnIcon from '../components/icons/Linkedin.astro'
+import MapPin from '../components/icons/MapPin.astro'
 import GhIcon from '../components/icons/GitHub.astro'
 import MailIcon from '../components/icons/Mail.astro'
 
@@ -80,19 +81,26 @@ const reading = [{ href: 'https://leerob.io', target: '_blank', label: 'Lee Robi
       </div>
     </a>
   </header>
-  <Section title='Links' links={links} />
-  <Section title='Reading' links={reading} />
   <Section title='Writing' links={writing} />
+  <Section title='Reading' links={reading} />
   <Section title='Projects' links={projects} />
+  <Section title='Inspiration' links={inspiration} />
+  <Section title='Work' links={work} />
+  <Section title='Links' links={links} />
   <Section title='Where'>
-    <div class='text-center mb-4'>
+    <div class='mb-4 flex flex-col items-center justify-center'>
       <div class='p-[4px] w-fit gradient-bg rounded-[19px]'>
         <img src={mapImage} class='border-4 border-neutral-50 dark:border-neutral-900 rounded-2xl'
           alt='Tel Aviv - Yafo, Israel' />
       </div>
-      <small class='text-neutral-400'>Tel Aviv - Yafo, Israel</small>
+      <div class='flex mt-2 text-center items-center'>
+        <span class='mr-1'>
+          <MapPin />
+        </span>
+        <small class='text-neutral-400'>
+          Tel Aviv - Yafo, Israel
+        </small>
+      </div>
     </div>
   </Section>
-  <Section title='Inspiration' links={inspiration} />
-  <Section title='Work' links={work} />
 </Layout>
