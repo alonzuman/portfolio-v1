@@ -3,11 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import avatarImg from '../assets/avatar.webp'
 import mapImage from '../assets/map.png'
 import Section from "../components/Section.astro";
-const writing = await Astro.glob('./post/*.md')?.then(v => v.filter(p => !p.frontmatter?.draft)?.map(post => ({
-  href: post.url,
-  label: post.frontmatter?.title
-})))
-const snippets = await Astro.glob('./snippet/*.md').then(v => v.map(post => ({
+
+const writing = await Astro.glob('./p/*.md').then(v => v.map(post => ({
   href: post.url,
   label: post.frontmatter?.title
 })))
@@ -21,6 +18,8 @@ const inspiration = [{
   label: "Craft", href: "https://craft.do", target: "_blank"
 }, {
   label: "Slite", href: "https://slite.com", target: "_blank"
+}, {
+  label: "Astro", href: "https://astro.build", target: "_blank"
 }]
 const links = [{
   href: 'https://twitter.com/alonzuman', label: "Twitter", target: "_blank"
@@ -70,7 +69,7 @@ const reading = [{ href: 'https://leerob.io', target: '_blank', label: 'Lee Robi
   <Section title='Links' links={links} />
   <!-- <Section title='Writing' links={writing} /> -->
   <Section title='Reading' links={reading} />
-  <Section title='Snippets' links={snippets} />
+  <Section title='Writing' links={writing} />
   <Section title='Projects' links={projects} />
   <Section title='Where'>
     <div class='text-center'>

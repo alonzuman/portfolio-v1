@@ -1,14 +1,16 @@
 ---
 export interface Props {
   title: string;
+  date?: string;
 }
 
-const isPost = Astro.url?.pathname?.includes('/post')
-const isSnippet = Astro.url?.pathname?.includes('/snippet')
+const isPost = Astro.url?.pathname?.includes('/p')
 const isNotHome = Astro?.url?.pathname !== '/'
 let { title } = Astro.props as Props;
+let date = ''
 
-if (isPost || isSnippet) {
+if (isPost) {
+  date = Astro.props?.content?.date // This is for MD files
   title = Astro.props?.content?.title // This is for MD files
 }
 
@@ -41,8 +43,11 @@ if (isPost || isSnippet) {
       </div>
     </>
     )}
-    {(isPost || isSnippet) && (
-    <h1 class='text-4xl mb-4 font-bold'>{title}</h1>
+    {(isPost) && (
+    <div class='mb-4'>
+      <h1 class='text-4xl font-bold'>{title}</h1>
+      <p class='text-neutral-400 dark:text-neutral-600 text-sm'>{date}</p>
+    </div>
     )}
     <slot />
   </main>

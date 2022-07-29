@@ -1,7 +1,12 @@
 ---
-title: Next Auth & email provider
+title: Next Auth & Email provider
+date: July 27th, 2022
 layout: ../../layouts/Layout.astro
 ---
+
+A small snippet for email sign ups (to be placed in the `[...nextauth].tsx` file)
+<br/>
+<br/>
 
 ```javascript
 export const authOptions: NextAuthOptions = {
