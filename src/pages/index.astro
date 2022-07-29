@@ -4,6 +4,7 @@ import avatarImg from '../assets/avatar.png'
 import mapImage from '../assets/map.png'
 import Section from "../components/Section.astro";
 
+//
 const writing = await Astro.glob('./p/*.md').then(v => v.map(post => ({
   href: post.url,
   label: post.frontmatter?.title
