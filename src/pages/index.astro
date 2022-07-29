@@ -10,7 +10,8 @@ import MailIcon from '../components/icons/Mail.astro'
 
 const writing = await Astro.glob('./p/*.md').then(v => v.map(post => ({
   href: post.url,
-  label: post.frontmatter?.title
+  label: post.frontmatter?.title,
+  secondary: post.frontmatter?.date
 })))
 const inspiration = [{
   label: "Linear", href: "https://linear.app", target: "_blank"
@@ -71,7 +72,7 @@ const reading = [{ href: 'https://leerob.io', target: '_blank', label: 'Lee Robi
         <div class='mb-4 gradient-bg p-[4px] w-fit rounded-full'>
           <img class='rounded-full h-16 w-16 border-4 border-neutral-50 dark:border-neutral-900' src={avatarImg} />
         </div>
-        <h4>Hey, I'm <span class='font-bold gradient-text'>Alon</span>
+        <h4>Hey, I'm <span class='gradient-text'>Alon</span>
           👋, I'm a design-minded software engineer passionate about building beautiful
           experiences for
           people to enjoy.

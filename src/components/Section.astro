@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  links?: { label: string; href: string; target?: HTMLAttributeAnchorTarget; icon?: string }[];
+  links?: { label: string; href: string; target?: HTMLAttributeAnchorTarget; icon?: any; secondary?: string }[];
   title: string;
 }
 
@@ -17,13 +17,20 @@ const id = title?.toLowerCase?.()?.replace(' ', ' -')
   </div>
   {links?.length > 0 && (
   <ul class='w-full'>
-    {links?.map(({label, icon:Icon,...link}) => (
-    <li class='mb-2 w-full flex items-center justify-between'>
-      <a {...link} class='hover-gradient-text w-full'>
+    {links?.map(({ label, secondary, icon:Icon,...link }) => (
+    <li class='mb-2 w-full flex items-center justify-between hover-gradient-text'>
+      <a {...link} class='w-full flex items-center justify-between'>
         {label}
+        <span class='shrink-0 font-mono text-sm '>
+          {secondary}
+        </span>
       </a>
+
       {Icon &&
-      <Icon />}
+      <span class='text-neutral-500'>
+        <Icon />
+      </span>
+      }
     </li>
     ))}
   </ul>

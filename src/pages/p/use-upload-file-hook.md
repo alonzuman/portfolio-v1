@@ -1,6 +1,6 @@
 ---
 title: useUploadFile hook for Firebase
-date: July 24th, 2022
+date: Jul 22'
 layout: ../../layouts/Layout.astro
 ---
 

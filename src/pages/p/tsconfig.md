@@ -1,6 +1,6 @@
 ---
 title: Typescript Config
-date: July 20th, 2022
+date: Jul 22'
 layout: ../../layouts/Layout.astro
 ---
 

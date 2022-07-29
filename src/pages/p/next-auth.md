@@ -1,6 +1,6 @@
 ---
 title: Next Auth & Email provider
-date: July 27th, 2022
+date: Jul 22'
 layout: ../../layouts/Layout.astro
 ---
 
