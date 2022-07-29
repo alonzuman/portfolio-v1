@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  links?: { label: string; href: string; target?: HTMLAttributeAnchorTarget }[];
+  links?: { label: string; href: string; target?: HTMLAttributeAnchorTarget; icon?: string }[];
   title: string;
 }
 
@@ -12,12 +12,13 @@ const id = title?.toLowerCase?.()?.replace(' ', ' -')
   <a href={`#${id}`}>
     <h4 id={id} class='w-24 text-neutral-400'>{title}</h4>
   </a>
-  <ul>
-    {links?.map(({label,...link}) => (
+  <ul class='w-full'>
+    {links?.map(({label, icon,...link}) => (
     <li
-      class='mb-2 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-pink-400 dark:hover:to-violet-400 hover:to-violet-800'>
-      <a {...link}>
+      class='mb-2 w-full hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-pink-400 dark:hover:to-violet-400 hover:to-violet-800'>
+      <a {...link} class='flex items-center justify-between w-full'>
         {label}
+        <img src={icon} />
       </a>
     </li>
     ))}
