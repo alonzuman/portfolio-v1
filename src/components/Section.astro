@@ -5,18 +5,22 @@ export interface Props {
 }
 
 const { title, links } = Astro.props as Props;
+const id = title?.toLowerCase?.()?.replace(' ', ' -')
 ---
 
-<section class='flex mb-12'>
-  <h4 class='w-24 text-neutral-400'>{title}</h4>
+<section class='flex mb-16'>
+  <a href={`#${id}`}>
+    <h4 id={id} class='w-24 text-neutral-400'>{title}</h4>
+  </a>
   <ul>
     {links?.map(({label,...link}) => (
-    <a {...link}>
-      <li
-        class='mb-2 hover:text-purple-500 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-purple-400 hover:to-violet-800'>
+    <li
+      class='mb-2 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-pink-400 dark:hover:to-violet-400 hover:to-violet-800'>
+      <a {...link}>
         {label}
-      </li>
-    </a>
+      </a>
+    </li>
     ))}
   </ul>
+  <slot />
 </section>

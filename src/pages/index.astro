@@ -1,33 +1,83 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import avatarImg from '../assets/avatar.webp'
+import mapImage from '../assets/map.png'
 import Section from "../components/Section.astro";
-const posts = await Astro.glob('./post/*.md');
-const snippets = await Astro.glob('./snippet/*.md');
+const writing = await Astro.glob('./post/*.md')?.then(v => v.filter(p => !p.frontmatter?.draft)?.map(post => ({
+  href: post.url,
+  label: post.frontmatter?.title
+})))
+const snippets = await Astro.glob('./snippet/*.md').then(v => v.map(post => ({
+  href: post.url,
+  label: post.frontmatter?.title
+})))
+const inspiration = [{
+  label: "Linear", href: "https://linear.app", target: "_blank"
+}, {
+  label: "Notion", href: "https://notion.so", target: "_blank"
+}, {
+  label: "Planetscale", href: "https://planetscale.com", target: "_blank"
+}, {
+  label: "Craft", href: "https://craft.do", target: "_blank"
+}, {
+  label: "Slite", href: "https://slite.com", target: "_blank"
+}]
+const links = [{
+  href: 'https://twitter.com/alonzuman', label: "Twitter", target: "_blank"
+}, {
+  href: "https://www.linkedin.com/in/alon-zuman-018365193/", label: "Linkedin", target: "_blank"
+}, {
+
+  href: "https://github.com/alonzuman", label: "GitHub", target: "_blank"
+}]
+
+const projects = [{ target: "_blank", href: 'https://jobs-51.web.app', label: "Jobs-51" },]
+
+const work = [{
+  target: "_blank", href: 'https://junojourney.com', label: "Juno Journey"
+}, {
+  target: "_blank", href: 'https://barbiz.shop', label: "Barbiz"
+}, {
+  href: '#', label: "Leesa"
+}, { target: '_blank', href: 'https://zumanjewelry.com', label: "Zuman Jewelry" }]
+
+const reading = [{ href: 'https://leerob.io', target: '_blank', label: 'Lee Robinson' }, {
+  href: 'https://brianlovin.com', target: "_blank", label: "Brian Lovin"
+}, {
+  href: 'https://tkdodo.eu/blog/'
+  , target: '_blank', label: "Dominik"
+}, {
+  href: 'https://kentcdodds.com/'
+  , target: '_blank', label: "Kent C. Dodds"
+}]
+
 ---
 
 <Layout title="Alon Zuman">
-  <main>
-    <header class='mb-12'>
+  <header class='mb-12'>
+    <a href='/#'>
       <img class='mb-4 rounded-full h-16 w-16' src={avatarImg} />
-      <h4>Hey, I'm Alon 👋, I'm a design-minded software engineer passionate about building beautiful experiences for
+      <h4>Hey, I'm <span
+          class='font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-violet-800 dark:to-violet-400'>Alon</span>
+        👋, I'm a design-minded software engineer passionate about building beautiful
+        experiences for
         people to enjoy.
       </h4>
-    </header>
-    <br />
-    <Section title='Reading' links={ [ { href:'https://leerob.io', target: '_blank' ,label: 'Lee Robinson' }, {
-      href: 'https://brianlovin.com' , target: "_blank" , label: "Brian Lovin" }, { href: 'https://tkdodo.eu/blog/' ,
-      target :'_blank', label: "Dominik" } ]} />
-    <Section title='Writing' links={posts?.filter(p=> !p.frontmatter?.draft)?.map(post=> ({
-      href: post.url,
-      label: post.frontmatter?.title
-      }))} />
-      <Section title='Snippets' links={snippets?.map(post=> ({
-        href: post.url,
-        label: post.frontmatter?.title
-        }))} />
-        <Section title='Work' links={[{ target:"_blank", href: 'https://junojourney.com' , label: "Juno Journey" },{
-          target:"_blank",href: 'https://barbiz.shop' , label: "Barbiz" },{href: '#' , label: "Leesa"
-          },{target:'_blank', href: 'https://zumanjewelry.com' , label: "Zuman Jewelry" }]} />
-  </main>
+    </a>
+  </header>
+  <br />
+
+  <Section title='Links' links={links} />
+  <!-- <Section title='Writing' links={writing} /> -->
+  <Section title='Reading' links={reading} />
+  <Section title='Snippets' links={snippets} />
+  <Section title='Projects' links={projects} />
+  <Section title='Where'>
+    <div class='text-center'>
+      <img src={mapImage} class='rounded-lg' alt='Tel Aviv - Yafo, Israel' />
+      <small class='text-neutral-400'>Tel Aviv - Yafo, Israel</small>
+    </div>
+  </Section>
+  <Section title='Inspiration' links={inspiration} />
+  <Section title='Work' links={work} />
 </Layout>

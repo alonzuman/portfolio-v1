@@ -3,7 +3,7 @@ title: Next Auth & email provider
 layout: ../../layouts/Layout.astro
 ---
 
-```
+```javascript
 export const authOptions: NextAuthOptions = {
 	// Include user.id on session
 	callbacks: {
@@ -31,5 +31,4 @@ export const authOptions: NextAuthOptions = {
 		}),
 	],
 };
-
 ```
