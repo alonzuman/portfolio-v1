@@ -3,9 +3,10 @@ import Layout from "../layouts/Layout.astro";
 import avatarImg from '../assets/avatar.png'
 import mapImage from '../assets/map.png'
 import Section from "../components/Section.astro";
-import twitterSvg from '../components/icons/Twitter.svg'
-import linkedinSvg from '../components/icons/Linkedin.svg'
-import ghSvg from '../components/icons/GitHub.svg'
+import TwIcon from '../components/icons/Twitter.astro'
+import LnIcon from '../components/icons/Linkedin.astro'
+import GhIcon from '../components/icons/GitHub.astro'
+import MailIcon from '../components/icons/Mail.astro'
 
 const writing = await Astro.glob('./p/*.md').then(v => v.map(post => ({
   href: post.url,
@@ -27,14 +28,17 @@ const inspiration = [{
   label: "Endpoint Space", href: "https://www.endpoint.space", target: "_blank"
 }]
 const links = [{
-  icon: twitterSvg,
+  icon: TwIcon,
   href: 'https://twitter.com/alonzuman', label: "Twitter", target: "_blank"
 }, {
-  icon: linkedinSvg,
+  icon: LnIcon,
   href: "https://www.linkedin.com/in/alon-zuman-018365193/", label: "Linkedin", target: "_blank"
 }, {
-  icon: ghSvg,
+  icon: GhIcon,
   href: "https://github.com/alonzuman", label: "GitHub", target: "_blank"
+}, {
+  icon: MailIcon,
+  href: "mailto:alonzuman7@gmail.com", label: "Email", target: "_blank"
 }]
 
 const projects = [{ target: "_blank", href: 'https://jobs-51.web.app', label: "Jobs-51" },]
@@ -60,16 +64,19 @@ const reading = [{ href: 'https://leerob.io', target: '_blank', label: 'Lee Robi
 ---
 
 <Layout title="Alon Zuman">
+
   <header class='mb-24'>
-    <a href='/#'>
-      <div class='mb-4 gradient-bg p-[4px] w-fit  rounded-full'>
-        <img class='rounded-full h-16 w-16 border-4 border-neutral-50 dark:border-neutral-900' src={avatarImg} />
+    <a href='/#' class='flex'>
+      <div class='w-full'>
+        <div class='mb-4 gradient-bg p-[4px] w-fit rounded-full'>
+          <img class='rounded-full h-16 w-16 border-4 border-neutral-50 dark:border-neutral-900' src={avatarImg} />
+        </div>
+        <h4>Hey, I'm <span class='font-bold gradient-text'>Alon</span>
+          👋, I'm a design-minded software engineer passionate about building beautiful
+          experiences for
+          people to enjoy.
+        </h4>
       </div>
-      <h4>Hey, I'm <span class='font-bold gradient-text'>Alon</span>
-        👋, I'm a design-minded software engineer passionate about building beautiful
-        experiences for
-        people to enjoy.
-      </h4>
     </a>
   </header>
   <Section title='Links' links={links} />

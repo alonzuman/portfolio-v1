@@ -8,19 +8,25 @@ const { title, links } = Astro.props as Props;
 const id = title?.toLowerCase?.()?.replace(' ', ' -')
 ---
 
-<section class='flex mb-16'>
-  <a href={`#${id}`}>
-    <h4 id={id} class='w-24 text-neutral-400 hover-gradient-text'># {title}</h4>
-  </a>
+<section class='flex flex-col lg:flex-row  mb-24'>
+  <div
+    class='text-left mb-4 lg:mb-0 lg:text-right pr-4 w-32 lg:ml-[-128px] text-neutral-400 hover-gradient-text shrink-0'>
+    <a href={`#${id}`}>
+      <h4 id={id}># {title}</h4>
+    </a>
+  </div>
+  {links?.length > 0 && (
   <ul class='w-full'>
-    {links?.map(({label, icon,...link}) => (
-    <li class='mb-2 w-full flex items-center justify-between '>
-      <a {...link} class='w-full hover-gradient-text'>
+    {links?.map(({label, icon:Icon,...link}) => (
+    <li class='mb-2 w-full flex items-center justify-between'>
+      <a {...link} class='hover-gradient-text w-full'>
         {label}
       </a>
-      <img src={icon} />
+      {Icon &&
+      <Icon />}
     </li>
     ))}
   </ul>
+  )}
   <slot />
 </section>
