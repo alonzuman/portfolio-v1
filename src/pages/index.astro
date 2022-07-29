@@ -23,6 +23,8 @@ const inspiration = [{
   label: "Slite", href: "https://slite.com", target: "_blank"
 }, {
   label: "Astro", href: "https://astro.build", target: "_blank"
+}, {
+  label: "Endpoint Space", href: "https://www.endpoint.space", target: "_blank"
 }]
 const links = [{
   icon: twitterSvg,
@@ -60,11 +62,10 @@ const reading = [{ href: 'https://leerob.io', target: '_blank', label: 'Lee Robi
 <Layout title="Alon Zuman">
   <header class='mb-24'>
     <a href='/#'>
-      <div class='mb-4 bg-gradient-to-r p-[4px] w-fit from-pink-400 to-violet-800 rounded-full'>
+      <div class='mb-4 gradient-bg p-[4px] w-fit  rounded-full'>
         <img class='rounded-full h-16 w-16 border-4 border-neutral-50 dark:border-neutral-900' src={avatarImg} />
       </div>
-      <h4>Hey, I'm <span
-          class='font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-violet-800 dark:to-violet-400'>Alon</span>
+      <h4>Hey, I'm <span class='font-bold gradient-text'>Alon</span>
         👋, I'm a design-minded software engineer passionate about building beautiful
         experiences for
         people to enjoy.
@@ -77,7 +78,7 @@ const reading = [{ href: 'https://leerob.io', target: '_blank', label: 'Lee Robi
   <Section title='Projects' links={projects} />
   <Section title='Where'>
     <div class='text-center mb-4'>
-      <div class='bg-gradient-to-r p-[4px] w-fit from-pink-400 to-violet-800 rounded-[19px]'>
+      <div class='p-[4px] w-fit gradient-bg rounded-[19px]'>
         <img src={mapImage} class='border-4 border-neutral-50 dark:border-neutral-900 rounded-2xl'
           alt='Tel Aviv - Yafo, Israel' />
       </div>

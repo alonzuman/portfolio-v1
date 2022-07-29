@@ -10,16 +10,15 @@ const id = title?.toLowerCase?.()?.replace(' ', ' -')
 
 <section class='flex mb-16'>
   <a href={`#${id}`}>
-    <h4 id={id} class='w-24 text-neutral-400'>{title}</h4>
+    <h4 id={id} class='w-24 text-neutral-400 hover-gradient-text'># {title}</h4>
   </a>
   <ul class='w-full'>
     {links?.map(({label, icon,...link}) => (
-    <li
-      class='mb-2 w-full hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-pink-400 dark:hover:to-violet-400 hover:to-violet-800'>
-      <a {...link} class='flex items-center justify-between w-full'>
+    <li class='mb-2 w-full flex items-center justify-between '>
+      <a {...link} class='w-full hover-gradient-text'>
         {label}
-        <img src={icon} />
       </a>
+      <img src={icon} />
     </li>
     ))}
   </ul>
