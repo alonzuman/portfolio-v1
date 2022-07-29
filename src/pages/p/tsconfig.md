@@ -1,10 +1,10 @@
 ---
 title: Typescript Config
+date: July 20th, 2022
 layout: ../../layouts/Layout.astro
 ---
 
 A quick setup for absolute imports in a Typescript project (mapping the `src` folder to `~`)
-<br/>
 
 ```json
 {

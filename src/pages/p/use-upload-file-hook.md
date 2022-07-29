@@ -5,8 +5,6 @@ layout: ../../layouts/Layout.astro
 ---
 
 A simple hook for uploading a new file to store in firebase storage
-<br/>
-<br/>
 
 ```typescript
 const useUploadFile = () => {
